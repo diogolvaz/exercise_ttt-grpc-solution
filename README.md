@@ -1,3 +1,5 @@
+# Solution for the lab: https://tecnico-distsys.github.io/03-grpc.html
+
 # gRPC Tic Tac Toe exercise
 
 This is the starting point for the gRPC Tic Tac Toe exercise.
