@@ -97,8 +97,11 @@ public class TTTClient {
 					/* Get column index of board. */
 					column = go % 3;
 					debug("row = " + row + ", column = " + column);
+					//TODO
 					//? play the game and get the result
-					play_res = stub.play(PlayRequest.newBuilder().setX(row).setY(column).setPlayer(player).build()).getResult();
+					PlayRequest request = PlayRequest.newBuilder().setX(row).setY(column).setPlayer(player).build();
+					PlayResponse response = stub.play(request);
+					play_res = response.getResult();
 					//?play_res = PlayResult.UNKNOWN;
 					if (play_res != PlayResult.SUCCESS) {
 						displayResult(play_res);
@@ -106,7 +109,10 @@ public class TTTClient {
 
 				} while (play_res != PlayResult.SUCCESS);
 				//? check if there is a winner
-				winner = stub.checkWinner(CheckWinnerRequest.getDefaultInstance()).getWinner();
+				//TODO
+				CheckWinnerRequest checkWinnerRequest = CheckWinnerRequest.getDefaultInstance();
+				CheckWinnerResponse checkWinnerResponse = stub.checkWinner(checkWinnerRequest);
+				winner =checkWinnerResponse.getWinner();
 
 				/* Select next player. */
 				player = (player + 1) % 2;
